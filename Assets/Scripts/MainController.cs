@@ -6,15 +6,21 @@ using UnityEngine;
 
 public class MainController : MonoBehaviour
 {
+    // Character
     private Character _currentCharacter;
     private GameObject _characterGameObject;
     private Animation _characterAnimation;
     private CharactersService _charactersService;
     private CharacterState _characterState;
     
+    // Background
+    private Animation _backgroundAnimation;
+    
     [SerializeField] private GameObject _characterPrefab;
-    [SerializeField] private AnimationClip _entryAnimation;
-    [SerializeField] private AnimationClip _leaveAnimation;
+    [SerializeField] private GameObject _backgroundGameObject;
+    [SerializeField] private AnimationClip _entryAnimationClip;
+    [SerializeField] private AnimationClip _leaveAnimationClip;
+    [SerializeField] private AnimationClip _doorOpenAnimationClip;
     [SerializeField] private List<CharacterVisualPreset> _visualPresets;
     
     private void Start()
@@ -23,6 +29,8 @@ public class MainController : MonoBehaviour
         _characterAnimation = _characterGameObject.GetComponent<Animation>();
         _charactersService = new CharactersService(_visualPresets);
         _characterState = CharacterState.Idle;
+
+        _backgroundAnimation = _backgroundGameObject.GetComponent<Animation>();
         
         RandomCharacter();
     }
@@ -64,10 +72,12 @@ public class MainController : MonoBehaviour
             spriteRenderer.sprite = newCharacter.Preset.Sprite;
         
             // Make new character enter
-            _characterAnimation.Play("CharacterEntry");   
+            _characterAnimation.Play("CharacterEntry");
+            _backgroundAnimation.Play("DoorsOpen");
             _characterState = CharacterState.Animation;
             yield return WaitForAnimation(_characterAnimation);
             _characterState = CharacterState.Idle;
+            
         }
     }
     
