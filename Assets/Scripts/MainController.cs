@@ -79,7 +79,6 @@ public class MainController : MonoBehaviour
             yield return WaitForAnimation(_characterAnimation);
             _backgroundAnimation.Play("DoorsClose");
             _characterState = CharacterState.Idle;
-            
         }
     }
     

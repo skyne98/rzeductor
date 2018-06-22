@@ -225,8 +225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterPrefab: {fileID: 1325517497327442, guid: 2332e3295f3fa45c4983f76b9f434a4d,
     type: 2}
-  _entryAnimation: {fileID: 7400000, guid: b7b35a3eb96024f17b9ba1402790ceef, type: 2}
-  _leaveAnimation: {fileID: 7400000, guid: a1cc4b9f61f534bd2b8382dc1572838d, type: 2}
+  _backgroundGameObject: {fileID: 952937749}
+  _entryAnimationClip: {fileID: 7400000, guid: b7b35a3eb96024f17b9ba1402790ceef, type: 2}
+  _leaveAnimationClip: {fileID: 7400000, guid: a1cc4b9f61f534bd2b8382dc1572838d, type: 2}
+  _doorOpenAnimationClip: {fileID: 7400000, guid: 6796a2398e60041028f3f75fa8ef2fee,
+    type: 2}
+  _doorCloseAnimationClip: {fileID: 7400000, guid: 1d1d5276cd19042e5967c4ae97d19b8a,
+    type: 2}
   _visualPresets:
   - Sprite: {fileID: 21300000, guid: 0ee44208332a749af934d5b576bd2557, type: 3}
   - Sprite: {fileID: 21300000, guid: 96b60f4500c01479fb6cad7f8dfc8fb5, type: 3}
@@ -365,7 +370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 952937749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38718fea4f9a6384891b6cd9fce15d79, type: 3}
+  m_Script: {fileID: 11500000, guid: 30d249cce7d6f47969e226f6e04c73c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!111 &952937753
@@ -378,7 +383,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: ed9c78e762d5b8c4d89241c7b938420c, type: 2}
+  - {fileID: 7400000, guid: 6796a2398e60041028f3f75fa8ef2fee, type: 2}
+  - {fileID: 7400000, guid: 25bab05438994429fa605e61aa63802a, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
