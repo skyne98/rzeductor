@@ -21,6 +21,7 @@ public class MainController : MonoBehaviour
     [SerializeField] private AnimationClip _entryAnimationClip;
     [SerializeField] private AnimationClip _leaveAnimationClip;
     [SerializeField] private AnimationClip _doorOpenAnimationClip;
+    [SerializeField] private AnimationClip _doorCloseAnimationClip;
     [SerializeField] private List<CharacterVisualPreset> _visualPresets;
     
     private void Start()
@@ -76,6 +77,7 @@ public class MainController : MonoBehaviour
             _backgroundAnimation.Play("DoorsOpen");
             _characterState = CharacterState.Animation;
             yield return WaitForAnimation(_characterAnimation);
+            _backgroundAnimation.Play("DoorsClose");
             _characterState = CharacterState.Idle;
             
         }
