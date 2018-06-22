@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 28790946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.46, y: -0.44, z: 0}
+  m_LocalPosition: {x: 0.38, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 952937751}
@@ -228,9 +228,9 @@ MonoBehaviour:
   _backgroundGameObject: {fileID: 952937749}
   _entryAnimationClip: {fileID: 7400000, guid: b7b35a3eb96024f17b9ba1402790ceef, type: 2}
   _leaveAnimationClip: {fileID: 7400000, guid: a1cc4b9f61f534bd2b8382dc1572838d, type: 2}
-  _doorOpenAnimationClip: {fileID: 7400000, guid: 6796a2398e60041028f3f75fa8ef2fee,
+  _doorOpenAnimationClip: {fileID: 7400000, guid: 873464a871bec104c8c1bcf4f53f659e,
     type: 2}
-  _doorCloseAnimationClip: {fileID: 7400000, guid: 1d1d5276cd19042e5967c4ae97d19b8a,
+  _doorCloseAnimationClip: {fileID: 7400000, guid: 055004aea96fb91409139fa47998096b,
     type: 2}
   _visualPresets:
   - Sprite: {fileID: 21300000, guid: 0ee44208332a749af934d5b576bd2557, type: 3}
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 952937749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d249cce7d6f47969e226f6e04c73c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 38718fea4f9a6384891b6cd9fce15d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!111 &952937753
@@ -383,8 +383,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 6796a2398e60041028f3f75fa8ef2fee, type: 2}
-  - {fileID: 7400000, guid: 25bab05438994429fa605e61aa63802a, type: 2}
+  - {fileID: 7400000, guid: 873464a871bec104c8c1bcf4f53f659e, type: 2}
+  - {fileID: 7400000, guid: 055004aea96fb91409139fa47998096b, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -412,7 +412,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1620853863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.32, y: -0.36, z: 0}
+  m_LocalPosition: {x: -0.38, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 952937751}
