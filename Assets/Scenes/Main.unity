@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterPrefab: {fileID: 1325517497327442, guid: 2332e3295f3fa45c4983f76b9f434a4d,
     type: 2}
+  _entryAnimation: {fileID: 7400000, guid: b7b35a3eb96024f17b9ba1402790ceef, type: 2}
+  _leaveAnimation: {fileID: 7400000, guid: a1cc4b9f61f534bd2b8382dc1572838d, type: 2}
   _visualPresets:
   - Sprite: {fileID: 21300000, guid: 0ee44208332a749af934d5b576bd2557, type: 3}
 --- !u!20 &519420031
