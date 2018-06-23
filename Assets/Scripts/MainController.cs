@@ -17,18 +17,22 @@ public class MainController : MonoBehaviour
     private Animation _backgroundAnimation;
     
     [SerializeField] private GameObject _characterPrefab;
+    [SerializeField] private GameObject _documentPrefab;
     [SerializeField] private GameObject _backgroundGameObject;
     [SerializeField] private AnimationClip _entryAnimationClip;
     [SerializeField] private AnimationClip _leaveAnimationClip;
     [SerializeField] private AnimationClip _doorOpenAnimationClip;
     [SerializeField] private AnimationClip _doorCloseAnimationClip;
     [SerializeField] private List<CharacterVisualPreset> _visualPresets;
+    [SerializeField] private List<UniquePerson> _uniquePeople;
+    [SerializeField] private List<NamePreset> _firstNames;
+    [SerializeField] private List<string> _lastNames;
     
     private void Start()
     {
         _characterGameObject = Instantiate(_characterPrefab);
         _characterAnimation = _characterGameObject.GetComponent<Animation>();
-        _charactersService = new CharactersService(_visualPresets);
+        _charactersService = new CharactersService(_visualPresets, _uniquePeople, _firstNames, _lastNames);
         _characterState = CharacterState.Idle;
 
         _backgroundAnimation = _backgroundGameObject.GetComponent<Animation>();
@@ -79,6 +83,10 @@ public class MainController : MonoBehaviour
             yield return WaitForAnimation(_characterAnimation);
             _backgroundAnimation.Play("DoorsClose");
             _characterState = CharacterState.Idle;
+            
+            // Create new documents
+            var newDocument = Instantiate(_documentPrefab).GetComponent<DocumentController>();
+            newDocument.SetPerson(_currentCharacter.Person);
         }
     }
     

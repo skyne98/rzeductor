@@ -187,6 +187,68 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &105098662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 105098665}
+  - component: {fileID: 105098664}
+  - component: {fileID: 105098663}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &105098663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105098662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &105098664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105098662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &105098665
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105098662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,16 +287,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterPrefab: {fileID: 1325517497327442, guid: 2332e3295f3fa45c4983f76b9f434a4d,
     type: 2}
+  _documentPrefab: {fileID: 1146641438106390, guid: ab3520fc59a434fb7bbc24de8782dea5,
+    type: 2}
   _backgroundGameObject: {fileID: 952937749}
   _entryAnimationClip: {fileID: 7400000, guid: b7b35a3eb96024f17b9ba1402790ceef, type: 2}
   _leaveAnimationClip: {fileID: 7400000, guid: a1cc4b9f61f534bd2b8382dc1572838d, type: 2}
-  _doorOpenAnimationClip: {fileID: 7400000, guid: 873464a871bec104c8c1bcf4f53f659e,
+  _doorOpenAnimationClip: {fileID: 7400000, guid: 6796a2398e60041028f3f75fa8ef2fee,
     type: 2}
-  _doorCloseAnimationClip: {fileID: 7400000, guid: 055004aea96fb91409139fa47998096b,
+  _doorCloseAnimationClip: {fileID: 7400000, guid: 25bab05438994429fa605e61aa63802a,
     type: 2}
   _visualPresets:
   - Sprite: {fileID: 21300000, guid: 0ee44208332a749af934d5b576bd2557, type: 3}
-  - Sprite: {fileID: 21300000, guid: 96b60f4500c01479fb6cad7f8dfc8fb5, type: 3}
+    Female: 0
+  _uniquePeople:
+  - VisualPreset:
+      Sprite: {fileID: 21300000, guid: 96b60f4500c01479fb6cad7f8dfc8fb5, type: 3}
+      Female: 0
+    Person:
+      FirstName: Donald
+      Lastname: Brump
+      Country: 1
+      DateOfBirth: 20.09.1961
+      ExpieryDate: 19.01.2020
+  _firstNames:
+  - Value: Mike
+    Female: 0
+  _lastNames:
+  - Johnson
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -370,7 +449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 952937749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38718fea4f9a6384891b6cd9fce15d79, type: 3}
+  m_Script: {fileID: 11500000, guid: 30d249cce7d6f47969e226f6e04c73c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!111 &952937753
@@ -383,8 +462,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 873464a871bec104c8c1bcf4f53f659e, type: 2}
-  - {fileID: 7400000, guid: 055004aea96fb91409139fa47998096b, type: 2}
+  - {fileID: 7400000, guid: 6796a2398e60041028f3f75fa8ef2fee, type: 2}
+  - {fileID: 7400000, guid: 25bab05438994429fa605e61aa63802a, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -463,3 +542,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1983071992
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714215817597020, guid: 123c70548e7624117adc515e1175723b, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212980746661963698, guid: 123c70548e7624117adc515e1175723b,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 61718629898731258, guid: 123c70548e7624117adc515e1175723b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 123c70548e7624117adc515e1175723b, type: 2}
+  m_IsPrefabParent: 0
