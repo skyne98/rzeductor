@@ -357,6 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bigSprite: {fileID: 21300000, guid: f640f1ab587b748c1b004650cdc6f094, type: 3}
   _smallSprite: {fileID: 21300000, guid: e908ad3f3facc43bca24e57fb96bc5b0, type: 3}
+  OnTray: 0
+  Dragged: 0
 --- !u!114 &114959842786225474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -515,7 +517,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3001
+  m_SortingOrder: 401
   m_TargetDisplay: 0
 --- !u!224 &224028568357063994
 RectTransform:

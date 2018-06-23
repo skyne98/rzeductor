@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Data;
 using UnityEngine;
 
 [RequireComponent(typeof(DraggableController))]
-public class FineController : MonoBehaviour {
+public class TicketController : MonoBehaviour {
     private GameObject _characterGameObject;
     private BoxCollider2D _characterCollider2D;
     private DraggableController _draggableController;
@@ -26,7 +25,7 @@ public class FineController : MonoBehaviour {
     {
         if (_characterCollider2D.bounds.Contains(mouseWorldPosition) && _draggableController.OnTray == false)
         {
-            _mainController.FineCharacter();
+            _mainController.ReturnDocument(gameObject);
         }
     }
 }

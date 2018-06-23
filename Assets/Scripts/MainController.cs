@@ -5,21 +5,25 @@ using System.Linq;
 using Data;
 using Services;
 using UnityEngine;
+using Random = System.Random;
 
 public class MainController : MonoBehaviour
 {
     // Character
     private Character _currentCharacter;
+    private bool _currentWithTicket;
     private List<GameObject> _currentDocuments;
     private GameObject _characterGameObject;
     private Animation _characterAnimation;
     private CharactersService _charactersService;
     private DocumentsService _documentsService;
+    private Random _random;
     
     // Background
     private Animation _backgroundAnimation;
     
     [SerializeField] private GameObject _characterPrefab;
+    [SerializeField] private GameObject _ticketPrefab;
     [SerializeField] private GameObject _backgroundGameObject;
     [SerializeField] private AnimationClip _entryAnimationClip;
     [SerializeField] private AnimationClip _leaveAnimationClip;
@@ -42,6 +46,7 @@ public class MainController : MonoBehaviour
         _characterAnimation = _characterGameObject.GetComponent<Animation>();
         _charactersService = new CharactersService(_visualPresets, _uniquePeople, _firstNames, _lastNames);
         _documentsService = new DocumentsService(_documentPresets);
+        _random = new Random();
         CharacterState = CharacterState.Idle;
         MouseState = MouseState.Idle;
         
@@ -125,6 +130,20 @@ public class MainController : MonoBehaviour
             var documentComponent = document.GetComponent<DocumentController>();
             documentComponent.SetPerson(_currentCharacter.Person);
             _currentDocuments.Add(document);
+            
+            // Create a ticket
+            var ticketIndex = _random.Next(0, 10);
+            if (ticketIndex <= 7)
+            {
+                var ticket = Instantiate(_ticketPrefab);
+                var ticketComponent = ticket.GetComponent<TicketController>();
+                _currentDocuments.Add(ticket);
+                _currentWithTicket = true;
+            }
+            else
+            {
+                _currentWithTicket = false;
+            }
         }
     }
     
