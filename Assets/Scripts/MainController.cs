@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -25,6 +26,7 @@ public class MainController : MonoBehaviour
     [SerializeField] private GameObject _characterPrefab;
     [SerializeField] private GameObject _ticketPrefab;
     [SerializeField] private GameObject _backgroundGameObject;
+    [SerializeField] private RulebookController _rulebookController;
     [SerializeField] private AnimationClip _entryAnimationClip;
     [SerializeField] private AnimationClip _leaveAnimationClip;
     [SerializeField] private AnimationClip _doorOpenAnimationClip;
@@ -39,6 +41,10 @@ public class MainController : MonoBehaviour
     public CharacterState CharacterState { get; set; }
     public MouseState MouseState { get; set; }
     
+    // Rules
+    public Country _privilegedCountry;
+    public DateTime _minimumDateOfBirth;
+    
     private void Start()
     {
         _currentDocuments = new List<GameObject>();
@@ -52,6 +58,15 @@ public class MainController : MonoBehaviour
         
         _backgroundAnimation = _backgroundGameObject.GetComponent<Animation>();
         
+        // Setup the rules
+        var values = Enum.GetValues(typeof(Country));
+        var country = (Country)values.GetValue(_random.Next(values.Length));
+        _privilegedCountry = country;
+        _minimumDateOfBirth = new DateTime(1993, 1, 1);
+        
+        // Write to the book
+        _rulebookController.SetRules(_privilegedCountry, _minimumDateOfBirth);
+        
         RandomCharacter();
     }
 
@@ -63,6 +78,11 @@ public class MainController : MonoBehaviour
 
     public void FineCharacter()
     {
+        if (RequiresTicket() && _currentWithTicket)
+            Debug.Log("You fined a wrong bro!");
+        if (RequiresTicket() == false)
+            Debug.Log("You fined a wrong bro!");
+        
         RandomCharacter();
     }
 
@@ -84,7 +104,20 @@ public class MainController : MonoBehaviour
 
     private void LetCharacter()
     {
+        if (RequiresTicket() && !_currentWithTicket)
+            Debug.Log("You had to fine him!");
+        
         RandomCharacter();
+    }
+
+    private bool RequiresTicket()
+    {
+        if (DateTime.Parse(_currentCharacter.Person.DateOfBirth) < _minimumDateOfBirth)
+            return true;
+        if (_currentCharacter.Person.Country != _privilegedCountry)
+            return true;
+
+        return false;
     }
 
     private IEnumerator ChangeCharacter(Character newCharacter)
