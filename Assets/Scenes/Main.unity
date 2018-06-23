@@ -287,8 +287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterPrefab: {fileID: 1325517497327442, guid: 2332e3295f3fa45c4983f76b9f434a4d,
     type: 2}
-  _documentPrefab: {fileID: 1146641438106390, guid: ab3520fc59a434fb7bbc24de8782dea5,
-    type: 2}
   _backgroundGameObject: {fileID: 952937749}
   _entryAnimationClip: {fileID: 7400000, guid: b7b35a3eb96024f17b9ba1402790ceef, type: 2}
   _leaveAnimationClip: {fileID: 7400000, guid: a1cc4b9f61f534bd2b8382dc1572838d, type: 2}
@@ -298,6 +296,10 @@ MonoBehaviour:
     type: 2}
   _visualPresets:
   - Sprite: {fileID: 21300000, guid: 0ee44208332a749af934d5b576bd2557, type: 3}
+    Female: 0
+  - Sprite: {fileID: 21300000, guid: eb664647f91784270b217b33b800beae, type: 3}
+    Female: 1
+  - Sprite: {fileID: 21300000, guid: 9c24cc7cffeed467ea936bd55c9f451b, type: 3}
     Female: 0
   _uniquePeople:
   - VisualPreset:
@@ -312,8 +314,13 @@ MonoBehaviour:
   _firstNames:
   - Value: Mike
     Female: 0
+  - Value: Alice
+    Female: 1
   _lastNames:
   - Johnson
+  _documentPresets:
+  - Prefab: {fileID: 1146641438106390, guid: ab3520fc59a434fb7bbc24de8782dea5, type: 2}
+  - Prefab: {fileID: 1760121670727126, guid: 4c0514eb1873a4ab8b3bf405fdc96f2e, type: 2}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

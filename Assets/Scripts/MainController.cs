@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Data;
+using Services;
 using UnityEngine;
 
 public class MainController : MonoBehaviour
 {
     // Character
     private Character _currentCharacter;
+    private List<GameObject> _currentDocuments;
     private GameObject _characterGameObject;
     private Animation _characterAnimation;
     private CharactersService _charactersService;
+    private DocumentsService _documentsService;
     private CharacterState _characterState;
     
     // Background
     private Animation _backgroundAnimation;
     
     [SerializeField] private GameObject _characterPrefab;
-    [SerializeField] private GameObject _documentPrefab;
     [SerializeField] private GameObject _backgroundGameObject;
     [SerializeField] private AnimationClip _entryAnimationClip;
     [SerializeField] private AnimationClip _leaveAnimationClip;
@@ -27,12 +29,15 @@ public class MainController : MonoBehaviour
     [SerializeField] private List<UniquePerson> _uniquePeople;
     [SerializeField] private List<NamePreset> _firstNames;
     [SerializeField] private List<string> _lastNames;
+    [SerializeField] private List<DocumentPreset> _documentPresets;
     
     private void Start()
     {
+        _currentDocuments = new List<GameObject>();
         _characterGameObject = Instantiate(_characterPrefab);
         _characterAnimation = _characterGameObject.GetComponent<Animation>();
         _charactersService = new CharactersService(_visualPresets, _uniquePeople, _firstNames, _lastNames);
+        _documentsService = new DocumentsService(_documentPresets);
         _characterState = CharacterState.Idle;
 
         _backgroundAnimation = _backgroundGameObject.GetComponent<Animation>();
@@ -40,15 +45,7 @@ public class MainController : MonoBehaviour
         RandomCharacter();
     }
 
-    private void Update()
-    {
-        if (Input.anyKeyDown)
-        {
-            RandomCharacter();
-        }
-    }
-
-    private void RandomCharacter()
+    public void RandomCharacter()
     {
         var newCharacter = _charactersService.GenerateCharacter();
         StartCoroutine(ChangeCharacter(newCharacter));
@@ -58,9 +55,16 @@ public class MainController : MonoBehaviour
     {
         if (_characterState == CharacterState.Idle)
         {
-            // Play removal animation
+            if (_currentDocuments.Count > 0)
+            {
+                // Wipe the documents
+                _currentDocuments.ForEach(d => Destroy(d));
+                _currentDocuments.Clear();
+            }
+            
             if (_currentCharacter != null)
             {
+                // Play removal animation
                 _characterAnimation.Play("CharacterLeave");
                 _characterState = CharacterState.Animation;
             }
@@ -85,8 +89,11 @@ public class MainController : MonoBehaviour
             _characterState = CharacterState.Idle;
             
             // Create new documents
-            var newDocument = Instantiate(_documentPrefab).GetComponent<DocumentController>();
-            newDocument.SetPerson(_currentCharacter.Person);
+            var documentPrefab = _documentsService.GenerateDocument();
+            var document = Instantiate(documentPrefab);
+            var documentComponent = document.GetComponent<DocumentController>();
+            documentComponent.SetPerson(_currentCharacter.Person);
+            _currentDocuments.Add(document);
         }
     }
     
