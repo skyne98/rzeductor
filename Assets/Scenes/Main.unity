@@ -679,7 +679,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f640f1ab587b748c1b004650cdc6f094, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3651872d433444f52895e5b2af27c427, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949f26ba736024f239d57b645132998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 0
 --- !u!4 &1488516286
 Transform:
   m_ObjectHideFlags: 0
@@ -961,7 +961,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 3b4459c8ba0244ea98321e75cfb9d4bd, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1030,7 +1031,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f640f1ab587b748c1b004650cdc6f094, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3651872d433444f52895e5b2af27c427, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

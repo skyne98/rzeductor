@@ -55,11 +55,11 @@ public class SceneryController : MonoBehaviour
         Vector2 scale = backgroundTransform.localScale;
         if (cameraSize.x >= cameraSize.y)
         { // Landscape (or equal)
-            scale *= cameraSize.x / spriteSize.x;
+            scale *= cameraSize.y / spriteSize.y;
         }
         else
         { // Portrait
-            scale *= cameraSize.y / spriteSize.y;
+            scale *= cameraSize.x / spriteSize.x;
         }
         
         backgroundTransform.localScale = scale;

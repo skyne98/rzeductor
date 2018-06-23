@@ -23,9 +23,13 @@ public class MainController : MonoBehaviour
     // Background
     private Animation _backgroundAnimation;
     
+    // Scenert
+    private Animation _sceneryAnimation;
+    
     [SerializeField] private GameObject _characterPrefab;
     [SerializeField] private GameObject _ticketPrefab;
     [SerializeField] private GameObject _backgroundGameObject;
+    [SerializeField] private GameObject _sceneryGameObject;
     [SerializeField] private RulebookController _rulebookController;
     [SerializeField] private AnimationClip _entryAnimationClip;
     [SerializeField] private AnimationClip _leaveAnimationClip;
@@ -57,6 +61,8 @@ public class MainController : MonoBehaviour
         MouseState = MouseState.Idle;
         
         _backgroundAnimation = _backgroundGameObject.GetComponent<Animation>();
+
+        _sceneryAnimation = _sceneryGameObject.GetComponent<Animation>();
         
         // Setup the rules
         var values = Enum.GetValues(typeof(Country));
@@ -150,11 +156,16 @@ public class MainController : MonoBehaviour
             spriteRenderer.sprite = newCharacter.Preset.Sprite;
         
             // Make new character enter
-            _characterAnimation.Play("CharacterEntry");
+            _sceneryAnimation.Play("SceneryStop");
+            yield return WaitForAnimation(_sceneryAnimation);
             _backgroundAnimation.Play("DoorsOpen");
+            yield return WaitForAnimation(_backgroundAnimation);
+            _characterAnimation.Play("CharacterEntry");
             CharacterState = CharacterState.Animation;
             yield return WaitForAnimation(_characterAnimation);
             _backgroundAnimation.Play("DoorsClose");
+            _sceneryAnimation.Play("SceneryStart");
+            yield return WaitForAnimation(_sceneryAnimation);
             CharacterState = CharacterState.Idle;
             
             // Create new documents
