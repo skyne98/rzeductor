@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114970015173905958}
   - component: {fileID: 61664824325650528}
   - component: {fileID: 114827072611181694}
+  - component: {fileID: 114461683975189632}
   m_Layer: 0
   m_Name: DocumentLicense
   m_TagString: Draggable
@@ -228,6 +229,18 @@ MonoBehaviour:
   m_Text: 'Mexico, Mexico
 
 '
+--- !u!114 &114461683975189632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146641438106390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318ddf7485677dd408ef01f494ad12ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _finePrefab: {fileID: 0}
 --- !u!114 &114511367013851052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -452,7 +465,7 @@ SpriteRenderer:
   m_Size: {x: 1.7333335, y: 2.3333333}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!222 &222036226991107104
 CanvasRenderer:
