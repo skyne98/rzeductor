@@ -125,9 +125,10 @@ GameObject:
   - component: {fileID: 212260295912121406}
   - component: {fileID: 114916154138781980}
   - component: {fileID: 61485319504069304}
+  - component: {fileID: 114555377393765844}
   m_Layer: 0
   m_Name: DocumentRedPassport
-  m_TagString: Untagged
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +279,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114555377393765844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1760121670727126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0087af1e8d3334c51987493fbf8a89e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bigSprite: {fileID: 21300000, guid: c7e0e0852ec3b43a1bfeb35b1ccc626e, type: 3}
+  _smallSprite: {fileID: 21300000, guid: 9e6bda2c6ebf94baeb6d0ea26328e54c, type: 3}
 --- !u!114 &114815091562049664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,8 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97df801893ab46e3ae3ad3ae558f48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bigSprite: {fileID: 21300000, guid: c7e0e0852ec3b43a1bfeb35b1ccc626e, type: 3}
-  _smallSprite: {fileID: 21300000, guid: 9e6bda2c6ebf94baeb6d0ea26328e54c, type: 3}
   _firstNameText: {fileID: 114415059020050914}
   _lastNameText: {fileID: 114988900502933086}
   _countryText: {fileID: 114985110353205612}

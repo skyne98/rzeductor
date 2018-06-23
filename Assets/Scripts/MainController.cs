@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Data;
 using Services;
 using UnityEngine;
@@ -14,7 +15,6 @@ public class MainController : MonoBehaviour
     private Animation _characterAnimation;
     private CharactersService _charactersService;
     private DocumentsService _documentsService;
-    private CharacterState _characterState;
     
     // Background
     private Animation _backgroundAnimation;
@@ -31,6 +31,10 @@ public class MainController : MonoBehaviour
     [SerializeField] private List<string> _lastNames;
     [SerializeField] private List<DocumentPreset> _documentPresets;
     
+    // States
+    public CharacterState CharacterState { get; set; }
+    public MouseState MouseState { get; set; }
+    
     private void Start()
     {
         _currentDocuments = new List<GameObject>();
@@ -38,8 +42,9 @@ public class MainController : MonoBehaviour
         _characterAnimation = _characterGameObject.GetComponent<Animation>();
         _charactersService = new CharactersService(_visualPresets, _uniquePeople, _firstNames, _lastNames);
         _documentsService = new DocumentsService(_documentPresets);
-        _characterState = CharacterState.Idle;
-
+        CharacterState = CharacterState.Idle;
+        MouseState = MouseState.Idle;
+        
         _backgroundAnimation = _backgroundGameObject.GetComponent<Animation>();
         
         RandomCharacter();
@@ -51,9 +56,35 @@ public class MainController : MonoBehaviour
         StartCoroutine(ChangeCharacter(newCharacter));
     }
 
+    public void FineCharacter()
+    {
+        RandomCharacter();
+    }
+
+    public void ReturnDocument(GameObject document)
+    {
+        _currentDocuments.Remove(document);
+        Destroy(document);
+
+        if (_currentDocuments.All(d => d.GetComponent<FineController>() != null))
+        {
+            LetCharacter();
+        }
+    }
+
+    public void AddDocument(GameObject document)
+    {
+        _currentDocuments.Add(document);
+    }
+
+    private void LetCharacter()
+    {
+        RandomCharacter();
+    }
+
     private IEnumerator ChangeCharacter(Character newCharacter)
     {
-        if (_characterState == CharacterState.Idle)
+        if (CharacterState == CharacterState.Idle)
         {
             if (_currentDocuments.Count > 0)
             {
@@ -66,12 +97,12 @@ public class MainController : MonoBehaviour
             {
                 // Play removal animation
                 _characterAnimation.Play("CharacterLeave");
-                _characterState = CharacterState.Animation;
+                CharacterState = CharacterState.Animation;
             }
         
             // Wait for the character to leave
             yield return WaitForAnimation(_characterAnimation);
-            _characterState = CharacterState.Idle;
+            CharacterState = CharacterState.Idle;
             
             // Set the new character
             _currentCharacter = newCharacter;
@@ -83,10 +114,10 @@ public class MainController : MonoBehaviour
             // Make new character enter
             _characterAnimation.Play("CharacterEntry");
             _backgroundAnimation.Play("DoorsOpen");
-            _characterState = CharacterState.Animation;
+            CharacterState = CharacterState.Animation;
             yield return WaitForAnimation(_characterAnimation);
             _backgroundAnimation.Play("DoorsClose");
-            _characterState = CharacterState.Idle;
+            CharacterState = CharacterState.Idle;
             
             // Create new documents
             var documentPrefab = _documentsService.GenerateDocument();
