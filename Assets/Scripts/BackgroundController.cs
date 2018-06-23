@@ -25,10 +25,4 @@ public class BackgroundController : MonoBehaviour
         transform.position = Vector2.zero; // Optional
         transform.localScale = scale;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
