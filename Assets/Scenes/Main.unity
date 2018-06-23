@@ -309,8 +309,8 @@ MonoBehaviour:
       FirstName: Donald
       Lastname: Brump
       Country: 1
-      DateOfBirth: 20.09.1961
-      ExpieryDate: 19.01.2020
+      DateOfBirth: 9/20/1961
+      ExpiryDate: 6/12/2021
   _firstNames:
   - Value: Mike
     Female: 0

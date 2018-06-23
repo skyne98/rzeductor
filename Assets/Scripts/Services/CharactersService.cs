@@ -68,7 +68,7 @@ public class CharactersService
                 Lastname = lastName,
                 DateOfBirth = dateOfBirth.ToShortDateString(),
                 Country = country,
-                ExpieryDate = expiryDate.ToShortDateString()
+                ExpiryDate = expiryDate.ToShortDateString()
             };
         
             return new Character(preset, person);   

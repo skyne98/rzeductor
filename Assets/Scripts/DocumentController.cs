@@ -28,7 +28,7 @@ public class DocumentController : MonoBehaviour {
     [SerializeField] private Text _lastNameText;
     [SerializeField] private Text _countryText;
     [SerializeField] private Text _dateOfBirthText;
-    [SerializeField] private Text _expieryText;
+    [SerializeField] private Text _expiryText;
     
     private void Start()
     {
@@ -91,8 +91,8 @@ public class DocumentController : MonoBehaviour {
         _firstNameText.text = _person.FirstName;
         _lastNameText.text = _person.Lastname;
         _countryText.text = GetCountryText(_person.Country);
-        _dateOfBirthText.text = DateTime.Parse(_person.DateOfBirth).ToShortDateString();
-        _expieryText.text = DateTime.Parse(_person.ExpieryDate).ToShortDateString();
+        _dateOfBirthText.text = _person.DateOfBirth;
+        _expiryText.text = _person.ExpiryDate;
     }
 
     private string GetCountryText(Country personCountry)

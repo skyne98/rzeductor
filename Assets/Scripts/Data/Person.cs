@@ -10,6 +10,6 @@ namespace Data
         public string Lastname;
         public Country Country;
         public string DateOfBirth;
-        public string ExpieryDate;
+        public string ExpiryDate;
     }
 }

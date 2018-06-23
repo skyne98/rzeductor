@@ -322,14 +322,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97df801893ab46e3ae3ad3ae558f48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainController: {fileID: 0}
   _bigSprite: {fileID: 21300000, guid: c7e0e0852ec3b43a1bfeb35b1ccc626e, type: 3}
   _smallSprite: {fileID: 21300000, guid: 9e6bda2c6ebf94baeb6d0ea26328e54c, type: 3}
   _firstNameText: {fileID: 114415059020050914}
   _lastNameText: {fileID: 114988900502933086}
   _countryText: {fileID: 114985110353205612}
   _dateOfBirthText: {fileID: 114485196988814560}
-  _expieryText: {fileID: 114815091562049664}
+  _expiryText: {fileID: 114815091562049664}
 --- !u!114 &114985110353205612
 MonoBehaviour:
   m_ObjectHideFlags: 1
